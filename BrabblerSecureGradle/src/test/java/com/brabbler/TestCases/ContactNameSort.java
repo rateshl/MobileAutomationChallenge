@@ -59,7 +59,7 @@ public class ContactNameSort {
 		
 		List<String> temp,namesort1;
 		MobileElement sortfirstnamebtn = driver.findElement(By.xpath("xpath of Sort button"));
-		sortfirstnamebtn.click();
+		//sortfirstnamebtn.click();
 		//driver.toggle
 
 		List<MobileElement> list = driver.findElements(By.xpath("xpath of table cell of name"));
