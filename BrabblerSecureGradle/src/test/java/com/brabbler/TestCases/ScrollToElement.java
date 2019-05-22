@@ -24,28 +24,19 @@ import org.openqa.selenium.remote.ExecuteMethod;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import com.brabbler.Objects.RegistrationPage;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.MobileElement;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+public class ScrollToElement {
 
-import org.apache.commons.exec.CommandLine;
-import org.apache.commons.exec.DefaultExecutor;
-import org.apache.commons.exec.ExecuteException;
-import org.apache.commons.exec.Executor;
-import org.apache.commons.exec.PumpStreamHandler;
+	WebDriver driver;
 
-
-public class WifiConnection {
-	
-	AndroidDriver driver;
-	
 	@BeforeTest
 	//public static void main(String[] args) {
-	public void select01() throws InterruptedException, ExecuteException, IOException{
+	public void initialSetUp() throws InterruptedException{
 		//Set the Desired Capabilities
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("deviceName", "My Phone");
@@ -57,27 +48,42 @@ public class WifiConnection {
 		caps.setCapability("noReset", true);
 		//Set ChromeDriver location
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\sss\\Desktop\\Mobile Automation\\Softwares\\chromedriver.exe");
-		
+
 		//Instantiate Appium Driver
 		AppiumDriver<MobileElement> driver = null;
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-			
+
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
-		}		
-		
-/*
- * I"m not much familiar with this Task. 
- * I tried to research in google and found that i could do this WiFi connection
- * Enable/Disable using adb commands in cmd window 
- * 
- * Using adb shell command i"ll get the information
- * 
- * 1)WifiName - adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId'
- * 2)Enable - adb shell "svc wifi enable" 
- * 3)Disable -  adb shell "svc wifi disable" 
- */
+		}
 	}
-			
-}
+
+	@Test
+	public class scrolldown {
+		AndroidDriver<MobileElement> driver;
+		//AndroidDriver<AndroidElement> driver;
+		public scrolldown(AndroidDriver<MobileElement> driver)
+		{
+			this.driver = driver;
+		}
+
+		/*Get the ResourceId of the dropdown object
+			  Using appium UiScrollable, scroll to the exact object*/
+		public MobileElement ScrollToElement (WebElement eledropdown, String resourceId)
+		{
+			return ((AndroidElement) eledropdown).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
+					+ "new UiSelector().resourceId(\""+resourceId+"\"));");	
+
+		}
+
+	}
+	
+	@AfterTest
+	
+public void Report() {
+		System.out.println("Scrolled to the Object successfully");
+		driver.quit();
+	
+	}
+	}

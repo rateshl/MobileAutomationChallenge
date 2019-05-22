@@ -16,7 +16,6 @@ public class RegistrationPage {
 	By listlanguage = By.xpath("");
 	By iconFolder = By.id("io.selendroid.testapp:id/startUserRegistration");
 	By btnList = By.id("io.selendroid.testapp:id/input_preferedProgrammingLanguage");
-	String resourceId = "io.selendroid.testapp:id/input_preferedProgrammingLanguage";
 	
 	public RegistrationPage(WebDriver driver)
 	{

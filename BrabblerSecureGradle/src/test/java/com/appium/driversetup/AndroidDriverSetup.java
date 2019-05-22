@@ -15,30 +15,30 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 
 public class AndroidDriverSetup {
-
-	AndroidDriver driver;
-
-	public  AndroidDriverSetup(AndroidDriver driver) throws InterruptedException{
-		this.driver=driver;
-	}
-	public void driversetup(String deviceName, String udid, String platformName, String platformVersion,
-			String appPackage, String appActivity){
-
+	
+	@BeforeTest
+	//public static void main(String[] args) {
+	public void initialSetUp() throws InterruptedException{
+		//Set the Desired Capabilities
 		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("deviceName", deviceName);
-		caps.setCapability("udid", udid); //Give Device ID of your mobile phone
-		caps.setCapability("platformName", platformName);
-		caps.setCapability("platformVersion", platformVersion);
-		caps.setCapability("appPackage", appPackage);
-		caps.setCapability("appActivity", appActivity);
+		caps.setCapability("deviceName", "My Phone");
+		caps.setCapability("udid", "XXXXXXXXX"); //Give Device ID of your mobile phone
+		caps.setCapability("platformName", "Android");
+		caps.setCapability("platformVersion", "8.0.0");
+		caps.setCapability("appPackage", "com.android.settings");
+		caps.setCapability("appActivity", ".wifi.WifiSettings");
 		caps.setCapability("noReset", true);
+		//Set ChromeDriver location
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\sss\\Desktop\\Mobile Automation\\Softwares\\chromedriver.exe");
+		
 		//Instantiate Appium Driver
 		AppiumDriver<MobileElement> driver = null;
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-
+			
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 }
+	
