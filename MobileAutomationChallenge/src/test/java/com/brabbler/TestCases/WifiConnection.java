@@ -49,8 +49,11 @@ public class WifiConnection extends AndroidDriverSetup{
  * 
  * Using adb shell command i"ll get the information
  * 
- * 1)WifiName - adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId'
- * 2)Enable - adb shell "svc wifi enable" 
- * 3)Disable -  adb shell "svc wifi disable" 
+ * 1)String wifiname = object.getstring
+ * 2)If "connected" is not displayed, report the UDID details in sysout
+ * 3)WifiName - adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId'
+ * 4)Enable - adb shell "svc wifi enable" 
+ * 5)Disable -  adb shell "svc wifi disable" 
+ * 
  */
 	}
