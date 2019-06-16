@@ -1,0 +1,27 @@
+****TestCase Name: ContactNameSort****
+
+1)Initiate the List with temp and namesort1
+2)Click on the Sort button
+3)Get the text of names in the table and store it in "temp" string of the List
+4)Declare temp value as namesort1(First name after sorting the application)
+5)Use Collections and sort the list
+6)If the temp equals to namesort 1, then PASS the test case as Sorted correctly
+7)Use comparartor to compare the Family name
+
+****TestCase Name: ScrollToElement****
+
+1)Launch the Mobile application
+2)Get the ResourceId of the dropdown object
+3)Using appium UiScrollable, scroll to the exact object
+4)Validate that the expected dropdown list is displayed and PASS the test case as Scrolled successfully
+
+****TestCase Name: WiFiConnection****
+
+ * I"m not much familiar with this Task. 
+ * I tried to research in google and found that i could do this WiFi connection
+ * Enable/Disable using adb commands in cmd window 
+ 
+Using adb shell command i"ll get the information
+ 1)WifiName - adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId'
+ 2)Enable - adb shell "svc wifi enable" 
+ 3)Disable -  adb shell "svc wifi disable"
