@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 
 public class RegistrationPage {
 	
+//Evgeniy"s comment - Use MobileElement instead of By.
+	
 	AndroidDriver<MobileElement> driver;
 	public void FirstNameComparator(AndroidDriver<MobileElement> driver)
 	{

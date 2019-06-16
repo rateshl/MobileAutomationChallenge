@@ -23,6 +23,7 @@ dependencies {
 
 }
 
+//Evgeniy"s comment - Make it a Gradle project
 test {
 
 useTestNG(){

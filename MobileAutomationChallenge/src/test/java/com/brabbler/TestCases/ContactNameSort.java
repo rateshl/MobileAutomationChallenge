@@ -21,7 +21,7 @@ import com.brabbler.Objects.RegistrationPage;
 
 public class ContactNameSort extends AndroidDriverSetup {
 
-
+//Evgeniy"s comment - Seperate creation of driver from actual test
 	@Test(priority=1)
 	public class SortName {
 		AndroidDriver<MobileElement> driver;

@@ -31,6 +31,7 @@ import io.appium.java_client.MobileElement;
 
 public class ScrollToElement extends AndroidDriverSetup {
 
+//Evgeniy"s comment - Seperate creation of driver from actual test
 	@Test (priority=1)
 	public class scrolldown {
 		AndroidDriver<MobileElement> driver;

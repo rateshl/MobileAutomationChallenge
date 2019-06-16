@@ -39,7 +39,8 @@ import com.appium.driversetup.AndroidDriverSetup;
 
 
 public class WifiConnection extends AndroidDriverSetup{
-			
+
+//Evgeniy"s comment - Seperate creation of driver from actual test
 		
 /*
  * I"m not much familiar with this Task. 
