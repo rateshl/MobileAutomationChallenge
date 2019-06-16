@@ -16,50 +16,22 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.ExecuteMethod;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import com.appium.driversetup.AndroidDriverSetup;
 import com.brabbler.Objects.RegistrationPage;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.MobileElement;
 
-public class ScrollToElement {
+public class ScrollToElement extends AndroidDriverSetup {
 
-	WebDriver driver;
-
-	@BeforeTest
-	//public static void main(String[] args) {
-	public void initialSetUp() throws InterruptedException{
-		//Set the Desired Capabilities
-		DesiredCapabilities caps = new DesiredCapabilities();
-		caps.setCapability("deviceName", "My Phone");
-		caps.setCapability("udid", "4210fb94d81b6413"); //Give Device ID of your mobile phone
-		caps.setCapability("platformName", "Android");
-		caps.setCapability("platformVersion", "8.0.0");
-		caps.setCapability("appPackage", "com.android.settings");
-		caps.setCapability("appActivity", ".wifi.WifiSettings");
-		caps.setCapability("noReset", true);
-		//Set ChromeDriver location
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\sss\\Desktop\\Mobile Automation\\Softwares\\chromedriver.exe");
-
-		//Instantiate Appium Driver
-		AppiumDriver<MobileElement> driver = null;
-		try {
-			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-
-		} catch (MalformedURLException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	@Test
+	@Test (priority=1)
 	public class scrolldown {
 		AndroidDriver<MobileElement> driver;
 		//AndroidDriver<AndroidElement> driver;
@@ -70,7 +42,7 @@ public class ScrollToElement {
 
 		/*Get the ResourceId of the dropdown object
 			  Using appium UiScrollable, scroll to the exact object*/
-		public MobileElement ScrollToElement (WebElement eledropdown, String resourceId)
+		public MobileElement ScrollToElement (MobileElement eledropdown, String resourceId)
 		{
 			return ((AndroidElement) eledropdown).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
 					+ "new UiSelector().resourceId(\""+resourceId+"\"));");	

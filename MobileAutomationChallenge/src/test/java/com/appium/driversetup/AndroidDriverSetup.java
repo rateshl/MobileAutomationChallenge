@@ -15,6 +15,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 
 public class AndroidDriverSetup {
+	public AndroidDriver driver;
+	
 	
 	@BeforeTest
 	//public static void main(String[] args) {
