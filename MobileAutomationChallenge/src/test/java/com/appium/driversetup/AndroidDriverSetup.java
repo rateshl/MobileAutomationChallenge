@@ -15,11 +15,10 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 
 public class AndroidDriverSetup {
+
 	public AndroidDriver driver;
-	
-	
+
 	@BeforeTest
-	//public static void main(String[] args) {
 	public void initialSetUp() throws InterruptedException{
 		//Set the Desired Capabilities
 		DesiredCapabilities caps = new DesiredCapabilities();
@@ -32,15 +31,13 @@ public class AndroidDriverSetup {
 		caps.setCapability("noReset", true);
 		//Set ChromeDriver location
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\sss\\Desktop\\Mobile Automation\\Softwares\\chromedriver.exe");
-		
 		//Instantiate Appium Driver
 		AppiumDriver<MobileElement> driver = null;
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
-			
+
 		} catch (MalformedURLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 }
-	

@@ -1,4 +1,4 @@
-package com.brabbler.TestCases;
+package com.brabbler.testCases;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -37,23 +37,22 @@ import org.apache.commons.exec.PumpStreamHandler;
 
 import com.appium.driversetup.AndroidDriverSetup;
 
-
 public class WifiConnection extends AndroidDriverSetup{
 
-//Evgeniy"s comment - Seperate creation of driver from actual test
-		
-/*
- * I"m not much familiar with this Task. 
- * I tried to research in google and found that i could do this WiFi connection
- * Enable/Disable using adb commands in cmd window 
- * 
- * Using adb shell command i"ll get the information
- * 
- * 1)String wifiname = object.getstring
- * 2)If "connected" is not displayed, report the UDID details in sysout
- * 3)WifiName - adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId'
- * 4)Enable - adb shell "svc wifi enable" 
- * 5)Disable -  adb shell "svc wifi disable" 
- * 
- */
-	}
+	//Evgeniy"s comment - Seperate creation of driver from actual test
+
+	/*
+	 * I"m not much familiar with this Task. 
+	 * I tried to research in google and found that i could do this WiFi connection
+	 * Enable/Disable using adb commands in cmd window 
+	 * 
+	 * Using adb shell command i"ll get the information
+	 * 
+	 * 1)String wifiname = object.getstring
+	 * 2)If "connected" is not displayed, report the UDID details in sysout
+	 * 3)WifiName - adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId'
+	 * 4)Enable - adb shell "svc wifi enable" 
+	 * 5)Disable -  adb shell "svc wifi disable" 
+	 * 
+	 */
+}

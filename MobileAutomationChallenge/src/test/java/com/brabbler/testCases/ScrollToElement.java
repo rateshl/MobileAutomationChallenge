@@ -1,4 +1,4 @@
-package com.brabbler.TestCases;
+package com.brabbler.testCases;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
@@ -23,15 +23,14 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import com.appium.driversetup.AndroidDriverSetup;
-import com.brabbler.Objects.RegistrationPage;
+import com.brabbler.uimap.RegistrationPage;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.MobileElement;
 
 public class ScrollToElement extends AndroidDriverSetup {
-
-//Evgeniy"s comment - Seperate creation of driver from actual test
+	//Evgeniy"s comment - Seperate creation of driver from actual test
 	@Test (priority=1)
 	public class scrolldown {
 		AndroidDriver<MobileElement> driver;
@@ -40,23 +39,17 @@ public class ScrollToElement extends AndroidDriverSetup {
 		{
 			this.driver = driver;
 		}
-
 		/*Get the ResourceId of the dropdown object
 			  Using appium UiScrollable, scroll to the exact object*/
 		public MobileElement ScrollToElement (MobileElement eledropdown, String resourceId)
 		{
 			return ((AndroidElement) eledropdown).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("
 					+ "new UiSelector().resourceId(\""+resourceId+"\"));");	
-
 		}
-
 	}
-	
-	@AfterTest
-	
-public void Report() {
+@AfterTest
+	public void Report() {
 		System.out.println("Scrolled to the Object successfully");
 		driver.quit();
-	
 	}
-	}
+}
